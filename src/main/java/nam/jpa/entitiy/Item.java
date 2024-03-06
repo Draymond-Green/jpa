@@ -1,15 +1,28 @@
 package nam.jpa.entitiy;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.annotation.Nonnull;
+import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import org.springframework.lang.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@NoArgsConstructor
 public class Item {
 
-    @Id
+    @Id @GeneratedValue
     @Column(name = "item_id")
     private Long id;
-    private String name;
-
+    private String itemName;
+    private Integer quantity;
+    private Integer price;
+    @OneToMany(mappedBy = "item")
+    private List<OrderItem> orderItems = new ArrayList<>();
+    public Item(String itemName, Integer quantity, Integer price) {
+        this.itemName = itemName;
+        this.quantity = quantity;
+        this.price = price;
+    }
 }

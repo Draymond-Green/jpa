@@ -28,8 +28,6 @@ class MemberRepositoryTest {
         JPAQueryFactory query = new JPAQueryFactory(em);
         List<Member> result = memberRepository.findByAge(33);
         BooleanBuilder booleanBuilder = new BooleanBuilder();
-
-
     }
 
 

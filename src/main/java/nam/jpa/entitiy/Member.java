@@ -23,7 +23,7 @@ public class Member {
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
 
-    @OneToMany
+    @OneToMany(mappedBy = "member")
     private List<Orders> orders = new ArrayList<>();
 
     public Member(String username) {
