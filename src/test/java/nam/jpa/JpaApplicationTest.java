@@ -4,14 +4,17 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
+import jakarta.validation.Validation;
 import lombok.extern.slf4j.Slf4j;
 import nam.jpa.Dto.MemberDto;
 import nam.jpa.Dto.QMemberDto;
 import nam.jpa.entitiy.Member;
 import nam.jpa.entitiy.QMember;
 import nam.jpa.entitiy.QTeam;
+import org.hibernate.validator.constraints.NotBlank;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -51,6 +54,7 @@ class JpaApplicationTest {
                 .join(qMember.team, team)
                 .fetch();
         ApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
+
     }
 
     private List<Member> searchMember1(String usernameCond, Integer ageCond) {
@@ -62,11 +66,6 @@ class JpaApplicationTest {
                 .where(booleanBuilder)
                 .fetch();
         return result;
-    }
-
-    public Temp mmm() {
-        Temp temp = new Temp(33);
-        return temp;
     }
 
 }

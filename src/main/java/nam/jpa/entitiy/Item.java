@@ -3,6 +3,7 @@ package nam.jpa.entitiy;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.lang.NonNull;
 
 import java.util.ArrayList;
