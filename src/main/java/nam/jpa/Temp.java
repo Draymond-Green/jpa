@@ -10,6 +10,8 @@ public class Temp {
     EntityManager em;
     private int age;
 
+
+
     Member member;
 
     @Autowired
